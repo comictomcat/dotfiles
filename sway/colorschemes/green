@@ -1,0 +1,16 @@
+### Color scheme configuration
+
+# Color-scheme
+set $main                #1e2127
+set $inactive-bg-color   #2f343f
+set $text-color          #f3f4f5
+set $inactive-text-color #676E7D
+set $urgent              #E06C75
+
+set $green #00FF00
+
+# Window Colors         border              background         text                 indicator
+client.focused          $main               #FA58AC           $text-color          #6D6A69
+client.unfocused        $main               $main              $inactive-text-color #6D6A69
+client.focused_inactive $main               $main              $inactive-text-color #6D6A69
+client.urgent           $urgent             $urgent            $text-color          #6D6A69

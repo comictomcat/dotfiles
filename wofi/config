@@ -1,0 +1,4 @@
+show=drun
+term=alacritty
+prompt=
+allow-images=True

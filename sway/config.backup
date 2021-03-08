@@ -1,0 +1,190 @@
+### Modifier button
+set $mod Mod4
+
+### Preferred applications
+set $term alacritty
+set $menu wofi
+set $web firefox
+
+### Bar configuration
+exec waybar -c ~/.config/sway/bar/config -s ~/.config/sway/bar/style.css
+
+### Window configuration
+font pango:MesloLGS Nerd Font 14
+default_border pixel 1
+gaps inner 15
+gaps outer 12
+
+### Workspaces configuration
+set $ws1 "1  "
+set $ws2 "2  "
+set $ws3 "3  "
+set $ws4 "4  "
+set $ws5 "5  "
+set $ws6 "6"
+set $ws7 "7"
+set $ws8 "8"
+set $ws9 "9"
+set $ws10 "10"
+
+### Sound configuration
+bindsym Control+F3 exec pamixer -i 5 # Increase sound volume
+bindsym Control+F2 exec pamixer -d 5 # Decrease sound volume
+bindsym Control+F4 exec pamixer -t   # Mute sound
+
+### Output configuration (Background)
+output * bg ~/Pictures/wallpaper.jpg fill
+
+### Input configuration (Keyboard)
+input * {
+    xkb_layout "us,ru"
+    xkb_options "grp:alt_shift_toggle"
+}
+
+### Colors and stuff
+
+# Color-scheme
+set $main            #1e2127
+set $inactive-bg-color   #2f343f
+set $text-color          #f3f4f5
+set $inactive-text-color #676E7D
+set $urgent             #E06C75
+
+# Window Colors         border              background         text                 indicator
+client.focused          $main               #00BFFF            $text-color          #6D6A69
+client.unfocused        $main               $main          $inactive-text-color #6D6A69
+client.focused_inactive $main               $main          $inactive-text-color #6D6A69
+client.urgent           $urgent             $urgent            $text-color          #6D6A69
+
+
+input keyboard xkb_model "pc101"
+
+### Key bindings
+## Basics
+
+# Start a terminal
+bindsym $mod+Return exec $term
+
+# Kill focused window
+bindsym $mod+q kill
+
+# Start your launcher
+bindsym $mod+d exec $menu
+
+# Drag floating windows by holding down $mod and left mouse button.
+floating_modifier $mod normal
+
+# Reload the configuration file or exit wayland session
+bindsym $mod+Shift+c reload
+bindsym $mod+Shift+e exec swaynag -t warning -m 'You pressed the exit shortcut. Do you really want to exit sway? This will end your Wayland session.' -b 'Yes, exit sway' 'swaymsg exit'
+	
+# Screenshots
+bindsym --release Print exec grim -g "$(slurp)" - | swappy -f -
+
+## Moving around
+
+# change focus
+#bindsym Control+Left focus left
+#bindsym Control+Down focus down
+#bindsym Control+Up focus up
+#bindsym Control+Right focus right
+
+# Or use $mod+[up|down|left|right]
+bindsym $mod+Left focus left
+bindsym $mod+Down focus down
+bindsym $mod+Up focus up
+bindsym $mod+Right focus right
+
+# move focused window
+#bindsym Control+Shift+Left move left
+#bindsym Control+Shift+Down move down
+#bindsym Control+Shift+Up move up
+#bindsym Control+Shift+Right move right
+
+# Ditto, with arrow keys
+bindsym $mod+Shift+Left move left
+bindsym $mod+Shift+Down move down
+bindsym $mod+Shift+Up move up
+bindsym $mod+Shift+Right move right
+
+## Workspaces:
+
+# Switch to workspace
+bindsym $mod+1 workspace number $ws1
+bindsym $mod+2 workspace number $ws2
+bindsym $mod+3 workspace number $ws3
+bindsym $mod+4 workspace number $ws4
+bindsym $mod+5 workspace number $ws5
+bindsym $mod+6 workspace number $ws6
+bindsym $mod+7 workspace number $ws7
+bindsym $mod+8 workspace number $ws8
+bindsym $mod+9 workspace number $ws9
+bindsym $mod+0 workspace number $ws10
+
+bindsym Control+Right workspace next
+bindsym Control+Left workspace prev
+
+
+# Move focused container to workspace
+bindsym $mod+Shift+1 move container to workspace number $ws1
+bindsym $mod+Shift+2 move container to workspace number $ws2
+bindsym $mod+Shift+3 move container to workspace number $ws3
+bindsym $mod+Shift+4 move container to workspace number $ws4
+bindsym $mod+Shift+5 move container to workspace number $ws5
+bindsym $mod+Shift+6 move container to workspace number $ws6
+bindsym $mod+Shift+7 move container to workspace number $ws7
+bindsym $mod+Shift+8 move container to workspace number $ws8
+bindsym $mod+Shift+9 move container to workspace number $ws9
+bindsym $mod+Shift+0 move container to workspace number $ws10
+
+## Layout stuff:
+
+# You can "split" the current object of your focus with
+# $mod+b or $mod+v, for horizontal and vertical splits
+# respectively.
+bindsym $mod+Shift+h splith
+bindsym $mod+Shift+v splitv
+
+# Switch the current container between different layout styles
+bindsym $mod+Shift+s layout stacking
+bindsym $mod+Shift+t layout tabbed
+bindsym $mod+Shift+w layout toggle split
+
+# Make the current focus fullscreen
+bindsym $mod+f fullscreen
+
+# Toggle the current focus between tiling and floating mode
+bindsym $mod+Shift+space floating toggle
+
+# Swap focus between the tiling area and the floating area
+bindsym $mod+space focus mode_toggle
+
+# Move focus to the parent container
+bindsym $mod+a focus parent
+
+## Scratchpad:
+
+
+# Move the currently focused window to the scratchpad
+bindsym $mod+Shift+minus move scratchpad
+
+# Show the next scratchpad window or hide the focused scratchpad window.
+# If there are multiple scratchpad windows, this command cycles through them.
+bindsym $mod+minus scratchpad show
+
+#
+# Resizing containers:
+#
+mode "resize" {
+    bindsym Left resize shrink width 10px
+    bindsym Down resize grow height 10px
+    bindsym Up resize shrink height 10px
+    bindsym Right resize grow width 10px
+
+    # Return to default mode
+    bindsym Return mode "default"
+    bindsym Escape mode "default"
+}
+bindsym $mod+r mode "resize"
+
+include /etc/sway/config.d/*

@@ -1,31 +1,42 @@
 Dotfiles
 --------
-My dotfiles might be a little bit messy. I'm just storing them here so it's easier for me to download them. Since people might find it's somewhat useful, I decided to make it a public repo. 
+My dotfiles might be a little bit messy. I'm just storing them here so it's easier for me to download them.
+Since people might find it's somewhat useful, I decided to make it a public repo. 
 
-Software & etc.
----------------
+Basic info
+----------
+OS: Arch Linux (vanilla kernel)
 Display Server: Wayland
 Window manager: sway
 Filesystem: btrfs
 Display manager: None (autostart with fish)
 Audio: Pipewire (alsa & pulse)
 
+System
+------
 Bar: waybar
 Menu: wofi
 Screenshots: swappy
-Terminal: alacritty
-Shell: fish
-Auth: doas
+Wallpaper: wallpaper.jpg
 
+Software
+--------
+Shell: fish
 Reader: zathura
 Image Viewer: sxiv
 Media player: mpv
-Music: Spotify (spicetify, Dribblish)
+Music: Spotify 
+Terminal: alacritty
 Telegram: Kotatogram
 Torrent: QBittorrent
-Browser: Firefox (Simplerent Fox)
+Browser: Firefox 
 VM: virt-manager (QEMU + KVM)
 IDE: PyCharm, Intellij, Doom Emacs (not here yet)
 
+Appearance 
+----------
 GTK Theme: Breeze
+Colorscheme: Nord
+Spotify theme: Dribblish
+Firefox theme: Simplerent Fox
 Fonts: JetBrains Mono NF, Meslo NF, SF Pro

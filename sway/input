@@ -7,3 +7,8 @@ input * {
 }
 
 input keyboard xkb_model "pc101"
+
+input 5426:84:Razer_Razer_DeathAdder {
+    accel_profile flat
+    pointer_accel 0.85
+}

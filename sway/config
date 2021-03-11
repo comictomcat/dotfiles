@@ -3,14 +3,8 @@
 # Keybidings
 include ~/.config/sway/keybindings
 
-# Keyboard layout
-include ~/.config/sway/layout
-
-input 5426:84:Razer_Razer_DeathAdder {
-    accel_profile flat
-    pointer_accel 0.85
-}
-
+# Input
+include ~/.config/sway/input
 
 # Colorscheme
 include ~/.config/sway/colorschemes/green
@@ -20,8 +14,6 @@ include ~/.config/sway/wallpaper
 
 # Start a bar
 include ~/.config/sway/waybar
-
-include ~/.config/sway/vars
 
 # systemd thingy (do not touch)
 include /etc/sway/config.d/*
